@@ -1,34 +1,18 @@
-# Flask OpenShift
+# Telegram bot in OpenShift
 
-This is a template to host in [OpenShift](https://openshift.redhat.com) a Python 3.x app using [Flask](http://flask.pocoo.org/). If you want to learn the process, you can read the [step by step](https://github.com/aaossa/flask-openshift/blob/master/Step-by-step.md) guide.
+This is a template to host in [OpenShift](https://openshift.redhat.com) a Python 3.x **Telegram bot** using [Flask](http://flask.pocoo.org/). Using [aaossa/flask-openshift](https://github.com/aaossa/flask-openshift)
 
 ### Running on OpenShift
 
-Create a Python application and move to your new folder
+Create a Python application with this command
 
 ```bash
-rhc app create <project> python-3.3
-cd <project>
+rhc app-create <project> python-3.3 --from-code https://github.com/aaossa/Telegram-bot-in-OpenShift.git
 ```
 
-Add this upstream and pull
+### Register and use of your bot
 
-```bash
-git remote add upstream -m master https://github.com/aaossa/flask-openshift.git
-git pull -s recursive -X theirs upstream master
-```
-
-Now push the repo upstream
-
-```bash
-git push
-```
-
-Checkout the "hello world example" at
-
-```
-https://<project>-<namespace>.rhcloud.com
-```
+> Describe conversation with @BotFather and setting up webhook
 
 # License
 
