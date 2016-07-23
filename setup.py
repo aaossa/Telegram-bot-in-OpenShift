@@ -8,13 +8,13 @@ readme = str()
 with open('README.md') as f:
     readme = f.read()
 
-setup(name='Flask-Openshift template',
+setup(name='Telegram bot in OpenShift',
 
       # PEP 440 -- Version Identification and Dependency Specification
       version='0.0.1',
 
       # Project description
-      description='Flask template app for OpenShift',
+      description='A really small and simple Telegram bot',
       long_description=readme,
 
       # Author details
@@ -22,7 +22,7 @@ setup(name='Flask-Openshift template',
       author_email='aaossa@uc.cl',
 
       # Project details
-      url='https://github.com/aaossa/flask-openshift',
+      url='https://github.com/aaossa/Telegram-bot-in-OpenShift',
       license="GNU v3",
 
       # Project dependencies
