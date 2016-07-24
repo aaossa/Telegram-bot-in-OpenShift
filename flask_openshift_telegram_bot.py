@@ -1,29 +1,28 @@
-from flask import Flask, redirect, render_template, request, url_for
+from bot import Bot
+from flask import Flask, abort, jsonify, request
+from settings import TELEGRAM_SECRET_URL
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    response = {"status": "OK"}
+    return jsonify(**response)
 
 
-@app.route("/login/", methods=["POST"])
-def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        return redirect(url_for('user', username=username))
-    return redirect(url_for('index'))
+@app.route("/<secret_url>", methods=["POST"])
+def login(secret_url):
+    if not TELEGRAM_SECRET_URL == secret_url:
+        abort(404)
+    payload = request.get_json()
+    if not Bot.valid_payload(payload):
+        abort(400)
+    chat_id = payload["message"]["chat"]["id"]
+    text = payload["message"]["text"]
+    response = Bot.process_message(chat_id, text)
+    return jsonify(**response)
 
-
-@app.route("/user/")
-@app.route("/user/<username>")
-def user(username=None):
-    if not username:
-        return redirect(url_for('index'))
-    return render_template('user.html', username=username)
 
 if __name__ == '__main__':
-    app.run(
-        debug=True
-    )
+    app.run()
