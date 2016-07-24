@@ -1,6 +1,7 @@
 # Telegram bot in OpenShift
 
-This is a template to host in [OpenShift](https://openshift.redhat.com) a Python 3.x **Telegram bot** using [Flask](http://flask.pocoo.org/). Using [aaossa/flask-openshift](https://github.com/aaossa/flask-openshift)
+This is a template to host in [OpenShift](https://openshift.redhat.com) a Python 3 **Telegram bot** using [Flask](http://flask.pocoo.org/). Build over [aaossa/flask-openshift](https://github.com/aaossa/flask-openshift)
+
 
 ### Running on OpenShift
 
@@ -9,6 +10,7 @@ Create a Python application with this command
 ```shell
 rhc app-create <project> python-3.3 --from-code https://github.com/aaossa/Telegram-bot-in-OpenShift.git
 ```
+
 
 ### Register your bot
 
@@ -38,6 +40,12 @@ Now we must set some environment variables in openshift:
 rhc env set TELEGRAM_BOT_USERNAME=<username> TELEGRAM_SECRET_URL=<secret_url> TELEGRAM_TOKEN=<token> -a <project>
 ```
 
+Once we do this, we must restart the app (you could do this [via web](https://openshift.redhat.com/app/console/applications) too):
+
+```shell
+rhc app restart <project>
+```
+
 > **Recomended:** Use the Python 3.6 `secrets` module to create a random and secret url. [I made a `secrets` implementation](https://gist.github.com/aaossa/a4c83ad87cd61fbd4c06f37f5913d2e3) in case you want to use it.
 
 
@@ -61,9 +69,12 @@ Telegram will answer with this:
 }
 ```
 
+
 ### Enjoy
 
 Go to talk your bot (you should find it at **`telegram.me/<username>`**) and try the **`/echo`** command. 
+
+
 
 # License
 
