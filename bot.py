@@ -1,5 +1,5 @@
 from requests import post
-from settings import TELEGRAM_API_URL, TELEGRAM_BOT_NAME, TELEGRAM_SECRET_URL, TELEGRAM_TOKEN
+from settings import TELEGRAM_API_URL, TELEGRAM_BOT_USERNAME, TELEGRAM_SECRET_URL, TELEGRAM_TOKEN
 
 
 class Bot:
@@ -33,7 +33,7 @@ class Bot:
 
 	@staticmethod
 	def __validate_command(command):
-		mention = "@{}".format(TELEGRAM_BOT_NAME)
+		mention = "@{}".format(TELEGRAM_BOT_USERNAME)
 		command = command if command.endswith(mention) else command + mention
 		command = command[1:] if command.startswith("/") else str()
 		command = "".join(command.rsplit(mention, 1))
