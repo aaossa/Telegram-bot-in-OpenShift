@@ -32,7 +32,7 @@ Now we must set some environment variables in openshift:
 
 **`TELEGRAM_BOT_USERNAME`**: Used to detect mentions to your bot.
 
-**`TELEGRAM_SECRET_URL`**: This bot works with [webhooks](https://core.telegram.org/bots/api#setwebhook), so we need to be notified of new messages. We don't want to be spammed or attacked, so this value should be secret. **Note:** Flask uses `/<secret_url>`, don't use the full url*
+**`TELEGRAM_SECRET_URL`**: This bot works with [webhooks](https://core.telegram.org/bots/api#setwebhook), so we need to be notified of new messages. We don't want to be spammed or attacked, so this value should be secret. **Note:** Flask uses `/<secret_url>`, don't use the full url
 
 **`TELEGRAM_TOKEN`**: Is our authorization to use the [Bot API](https://core.telegram.org/bots/api)
 
