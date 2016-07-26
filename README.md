@@ -46,6 +46,8 @@ Once we do this, we must restart the app (you could do this [via web](https://op
 rhc app restart <project>
 ```
 
+###### If this does not work then try using `rhc app stop <project>` and then `rhc app start <project>`.
+
 > **Recomended:** Use the Python 3.6 `secrets` module to create a random and secret url. [I made a `secrets` implementation](https://gist.github.com/aaossa/a4c83ad87cd61fbd4c06f37f5913d2e3) in case you want to use it.
 
 
