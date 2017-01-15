@@ -11,6 +11,13 @@ Create a Python application with this command
 rhc app-create <project> python-3.3 --from-code https://github.com/aaossa/Telegram-bot-in-OpenShift.git
 ```
 
+If you want to use Python 3.5, I recommend [this custom cartridge](https://github.com/Grief/openshift-cartridge-python-3.5). You can create your app with this command
+
+```bash
+rhc app create <project> https://raw.githubusercontent.com/Grief/openshift-cartridge-python-3.5/master/metadata/manifest.yml diy-0.1 --from-code https://github.com/aaossa/Telegram-bot-in-OpenShift.git
+```
+
+If you're interested in create your own app, you can use [my template](https://github.com/aaossa/flask-openshift) to create your own with just one command
 
 ### Register your bot
 
